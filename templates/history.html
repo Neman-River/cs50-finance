@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Buy
+{% endblock %}
+
+{% block main %}
+<form action="/history" method="get">
+    <table class="table table-hover fancy-table">
+        <thead>
+            <th>Timestamp</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Shares</th>
+        </thead>
+
+        <tbody>
+            {% for row in history_info %}
+            <tr>
+                <td>{{ row["timestamp"] }}</td>
+                <td>{{ row["stock"] }}</td>
+                <td>{{ row["price"] | usd}}</td>
+                <td>{{ row["shares"] }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</form>
+{% endblock %}

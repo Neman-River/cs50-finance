@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Quoted
+{% endblock %}
+
+{% block main %}
+
+    <form action="/quote" method="get">
+        <table class="table table-hover fancy-table">
+            <thead>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Symbol</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{ stock_info["name"] }}</td>
+                    <td>{{ stock_info["price"] | usd }}</td>
+                    <td>{{ stock_info["symbol"] }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </form>
+
+{% endblock %}
